@@ -1,0 +1,35 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.title{
+  position: relative;
+}
+
+img{
+  width: 100%;
+  height: 100vh;
+
+  /* 移除 img 底部的空白 */
+  /* 方法一：在 img 標籤下加入 display:block 形成一區塊 */
+  display: block;
+
+  /* 方法二：設置圖片的垂直對齊方式，將 vertical-align 屬性設為 top、text-top、bottom、text-bottom 皆可解決 */
+  /* vertical-align:top; */
+}
+
+h1{
+  display: inline-block;
+  width: 50%;
+  position: absolute;
+  background-color: #063d3d;
+  color: #fff;
+  padding: 10px 100px;
+  text-align: center;
+  border-radius: 5px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  top: 70vh;
+}
