@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(03)開胃餐點 - 中式資料綁定佐無毒 jQuery 畫面處理</title>
+  <link rel="stylesheet" href=".././css/style.css">
+</head>
+
+<!-- jQuery版本 -->
+
+<body>
+  <div id="app">
+    <section>
+      <div class="container">
+        <div class="title">
+          <img class="logo" src="" alt="logo">
+          <h1></h1>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+  <script>
+    let data = {
+      src: 'https://picsum.photos/id/1/300/300',
+      title: 'Vue.js 手牽手，一起嗑光全家桶'
+    }
+
+    $('.title > h1').text(data.title)
+    $('.logo').attr('src', data.src)
+  </script>
+
+</body>
+
+</html>
