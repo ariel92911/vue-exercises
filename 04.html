@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(04)開胃餐點 - 古早味事件燉畫面綁定</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<!-- 原本結構 -->
+
+<body>
+  <div id="app">
+    <section>
+      <div class="container">
+        <div class="title">
+          <img class="logo" :src="src" alt="logo">
+          <h1>{{ title }}</h1>
+          <div class="description">
+            <!-- 如果不是第一天就秀起來 -->
+            <!-- index != 0 -->
+            <!-- <a class="arrow left" v-on:click="changeIndex(-1)" v-if="index > 0">左</a> -->
+            <a class="arrow left" @click="changeIndex(-1)" v-if="index > 0"><i class="fas fa-caret-left"></i></a>
+
+            <div class="menuItem white">
+              <span class="number">{{ index+1 }}</span>
+              <span class="type">{{ today.type }}</span>
+              <a class="title" target="vue-iron" :href="today.link">{{ today.title }}</a>
+            </div>
+
+            <!-- 如果不是最後一天就秀起來 -->
+            <!-- index != this.menu.length - 1 -->
+            <!-- <a class="arrow right" v-on:click="changeIndex(1)" v-if="index < total-1">右</a> -->
+            <a class="arrow right" @click="changeIndex(1)" v-if="index < total-1"><i class="fas fa-caret-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
+  <script>
+    let data = {
+      title: 'Vue.js 手牽手，一起嗑光全家桶',
+      src: 'https://picsum.photos/id/1/300/300',
+      index: 0,
+      menu: [
+        { type: '主廚的話', title: '餐點介紹與相關說明', link: 'javascript:;' },
+        { type: '餐具擺盤', title: '萬用白瓷VS Code 與套裝工具組', link: 'javascript:;' },
+        { type: '開胃餐點', title: '中式資料綁定佐無毒 jQuery 畫面處理', link: 'javascript:;' },
+        { type: '開胃餐點', title: '古早味事件燉畫面綁定', link: 'javascript:;' }
+      ]
+    }
+
+    let vm = new Vue({
+      el: '#app',
+      data: data,
+      computed: {
+        today() {
+          return this.menu[this.index]
+        },
+        total() {
+          return this.menu.length
+        }
+      },
+      methods: {
+        changeIndex(change) {
+          let length = this.menu.length
+          this.index = (this.index + change + this.total) % this.total
+
+          // this.index += change
+          // if (this.index < 0) {
+          //   this.index = 0
+          // } else if (this.index > this.menu.length - 1) {
+          //   this.index = this.menu.length - 1
+          // }
+
+        }
+      }
+    })
+
+
+
+  </script>
+</body>
+
+</html>
