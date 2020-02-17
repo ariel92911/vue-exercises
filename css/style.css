@@ -10,8 +10,7 @@ section{
 }
 
 .container{
-  max-width: 960px;
-  width: 80%;
+  width: 600px;
   height: 100vh;
   margin: auto;
   display: flex;
